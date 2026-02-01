@@ -9,8 +9,11 @@ export const createQuillModules = (quillRef: any) => ({
       [{ list: "ordered" }, { list: "bullet" }],
       ["link", "image"],
       ["clean"],
-      ["clear"], // <-- add custom clear button
+      ["clear"],
     ],
+    Clipboard: {
+      matchVisuals: false,
+    },
     handlers: {
       image: () => {
         if (!quillRef?.current) return;

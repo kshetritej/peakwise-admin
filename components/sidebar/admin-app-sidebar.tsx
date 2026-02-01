@@ -16,7 +16,7 @@ import {
 import { NavUtils } from "./nav-utils";
 import { TNavData } from "@/app/(dash)/types/navItems";
 import Link from "next/link";
-import { LucideCircle, LucideContact2, LucideCopyX, LucideForm, LucideGaugeCircle, LucideMapPinCheck, LucideMapPinHouse, LucideMountainSnow, LucideNewspaper, LucideNotebook, LucideNotebookPen, LucidePyramid, LucideRoute, LucideSettings2, LucideSquareActivity, LucideTag, SquareTerminal } from "lucide-react";
+import { LucideCircle, LucideContact2, LucideCopyX, LucideForm, LucideGaugeCircle, LucideMapPinCheck, LucideMapPinHouse, LucideMountainSnow, LucideNewspaper, LucideNotebook, LucideNotebookPen, LucidePyramid, LucideRoute, LucideSettings2, LucideSquareActivity, LucideTag, LucideUsers2, SquareTerminal } from "lucide-react";
 
 const data: TNavData = {
   user: {
@@ -92,6 +92,11 @@ const data: TNavData = {
       name: "Manage Departments",
       url: "/manage-departments",
       icon: LucideContact2,
+    },
+    {
+      name: "Manage Team Members",
+      url: "/manage-team",
+      icon: LucideUsers2,
     },
   ],
   navSecondary: [
