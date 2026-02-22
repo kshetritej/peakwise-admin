@@ -17,6 +17,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { PasswordShowHideToggle } from "@/components/molecules/password-show-hide-toggle";
 import { siteName } from "../config/siteConfig";
+import { ar } from "zod/v4/locales";
 
 type FormValues = {
   email: string;
@@ -34,13 +35,15 @@ export function LoginForm({
   async function onSubmit(data: FormValues) {
     try {
       setIsLoading(true);
-      const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/admin/login`, {
-        method: "POST",
-        credentials: "include",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-        cache: "no-store",
-      },
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_BASE_URL}/admin/login`,
+        {
+          method: "POST",
+          credentials: "include",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data),
+          cache: "no-store",
+        },
       );
 
       const payload = await res.json().catch(() => ({}));
@@ -64,6 +67,7 @@ export function LoginForm({
       console.error("Admin login error:", err);
       toast.error("Something went wrong");
     } finally {
+      toast.error("Inavalid email or password.");
       setIsLoading(false);
     }
   }
@@ -85,9 +89,7 @@ export function LoginForm({
               </div>
               <span className="sr-only">{"Peakwise"}</span>
             </Link>
-            <h1 className="text-xl font-bold">
-              Welcome to {siteName}
-            </h1>
+            <h1 className="text-xl font-bold">Welcome to {siteName}</h1>
             <FieldDescription>
               Enter your credentials to login to your admin panel.
             </FieldDescription>
