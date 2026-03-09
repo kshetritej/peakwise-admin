@@ -11,6 +11,8 @@ export interface TripFormData {
   shortDescription: string;
   fullDescription: string;
   duration: string;
+  maximumAltitude: string;
+  accommodations: string;
   guestCapacity: number;
   locations: string;
   inclusions: string;
@@ -20,7 +22,17 @@ export interface TripFormData {
   price: number;
   highlights: string;
   keywords: string;
-  itinerary: Array<{ day: number; title: string; description: string }>;
+  itinerary: Array<{
+    day: number;
+    title: string;
+    description: string;
+    duration: string;
+    distance: string;
+    ascent: string;
+    descent: string;
+    meals: string;
+    accommodations: string;
+  }>;
   additionalInfo: Array<{ title: string; description: string }>;
   faqs: Array<{ question: string; answer: string }>;
   seo: {

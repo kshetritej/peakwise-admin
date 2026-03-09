@@ -29,7 +29,7 @@ function LayoutContent({ children }: Readonly<{ children: React.ReactNode }>) {
               <StepButton stepNumber={1} stepText="Basic Information" />
             </li>
             <li>
-              <StepButton stepNumber={2} stepText="Capacity and Duration" />
+              <StepButton stepNumber={2} stepText="Trip Facts (Glance Items)" />
             </li>
             <li>
               <StepButton stepNumber={3} stepText="Itinerary" />

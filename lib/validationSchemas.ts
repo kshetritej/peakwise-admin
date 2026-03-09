@@ -23,6 +23,8 @@ export const createActivitySchema = z.object({
   fullDescription: z.string().min(10, "Full description is too short"),
 
   duration: z.string(),
+  maximumAltitude: z.string().nullable().optional(),
+  accommodations: safeString,
 
   guestCapacity: z
     .number()
@@ -39,6 +41,12 @@ export const createActivitySchema = z.object({
           .optional(),
         title: z.string().min(5, "Itinerary title is too short"),
         description: z.string().min(10, "Itinerary description is too short"),
+        duration: z.string().nullable().optional(),
+        distance: z.string().nullable().optional(),
+        ascent: z.string().nullable().optional(),
+        descent: z.string().nullable().optional(),
+        meals: safeString,
+        accommodations: safeString,
       }),
     )
     .min(1, "At least one itinerary item is required"),
