@@ -7,6 +7,7 @@ import { PlusIcon } from "lucide-react";
 import { columns } from "./columns";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { TripTableSkeleton } from "@/components/skeletons/trip-table-skeleton";
 
 export default function Trips() {
   const [tripData, setTripData] = useState<any[]>([]);
@@ -85,7 +86,7 @@ export default function Trips() {
       {error ? (
         <div className="text-red-500">{error}</div>
       ) : loading ? (
-        <p> Loading ...</p>
+        <TripTableSkeleton />
       ) : (
         <DataTable data={tripData} columns={columns} pagination={pagination} />
       )}
