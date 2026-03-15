@@ -26,7 +26,7 @@ function LayoutContent({ children }: Readonly<{ children: React.ReactNode }>) {
 
   return (
     <div className="flex w-full max-w-screen mx-auto">
-      <nav className="bg-accent  mb-6 min-h-screen sticky top-0 w-65 rounded-md pt-4">
+      <nav className="bg-background mb-6 min-h-screen sticky top-0 w-65 rounded-md pt-4">
         <ScrollArea className="">
           <ul className="@container flex items-start justify-start gap-2 min-w-max flex-col">
             <li>

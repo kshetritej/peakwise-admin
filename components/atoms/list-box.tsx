@@ -2,11 +2,11 @@ import { LucideCheck } from "lucide-react";
 
 export default function ListBox({ list }: { list: string[] }) {
   return (
-    <div className="bg-accent p-2 rounded-sm">
+    <div className="bg-background p-2 rounded-sm">
       <ul>
         {list.map((item) => (
           <li key={item} className="flex items-center gap-1 text-sm">
-            <LucideCheck size={14}  className="text-primary"/>
+            <LucideCheck size={14} className="text-primary" />
             {item}
           </li>
         ))}

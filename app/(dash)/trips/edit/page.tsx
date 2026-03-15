@@ -17,7 +17,6 @@ import {
   LucideEdit2,
   Plus,
   Trash2,
-  Upload,
   UploadCloud,
   X,
 } from "lucide-react";
@@ -399,8 +398,6 @@ function TripForm() {
   };
 
   const onSubmit = async (data: TripFormData) => {
-    console.log("Submitted: ", data);
-    console.log("Itinerary Fields: ", itineraryFields);
     const payload = {
       ...data,
       tripCategoryId: selectedCategory ?? undefined,

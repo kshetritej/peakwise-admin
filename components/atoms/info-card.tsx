@@ -20,11 +20,11 @@ export default function InfoCard({
             : type == "info"
               ? "border-l-blue-600"
               : "",
-        "border-l-4 rounded-sm text-sm p-1 rounded-4 bg-accent flex flex-col",
+        "border-l-4 rounded-sm text-sm p-1 rounded-4 bg-background flex flex-col",
       )}
     >
       <div className="flex gap-1 items-center font-semibold">
-        <LucideLightbulb size={16}  /> {title ? title : "Tip"}
+        <LucideLightbulb size={16} /> {title ? title : "Tip"}
       </div>
       <p className="p-2">{info}</p>
     </div>
