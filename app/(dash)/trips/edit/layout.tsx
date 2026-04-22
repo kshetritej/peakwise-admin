@@ -1,0 +1,106 @@
+"use client";
+
+import StepButton from "@/components/atoms/step-button";
+import { Button } from "@/components/ui/button";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { useTripStore } from "@/store/useTripStore";
+import { useSearchParams } from "next/navigation";
+import React, { Suspense } from "react";
+
+function LayoutContent({ children }: Readonly<{ children: React.ReactNode }>) {
+  const searchParams = useSearchParams();
+  const isEdit = searchParams?.get("id") || null;
+  const currStep = useTripStore((step) => step.currentStep);
+  const stepsTexts = [
+    "Basic Information",
+    "Capacity and Duration",
+    "Itinerary",
+    "Inclusions and Exclusions",
+    "Meeting and Dropoffs",
+    "Media and Highlights",
+    "Pricing",
+    "Additional Info",
+    "FAQs",
+    "SEO",
+  ];
+
+  return (
+    <div className="flex w-full max-w-screen mx-auto">
+      <nav className="bg-gray-100 mb-6 min-h-screen sticky top-0 w-65 rounded-md pt-4">
+        <ScrollArea className="">
+          <ul className="@container flex items-start justify-start gap-2 min-w-max flex-col">
+            <li>
+              <StepButton stepNumber={1} stepText="Basic Information" />
+            </li>
+            <li>
+              <StepButton stepNumber={2} stepText="Trip Facts (Glance Items)" />
+            </li>
+            <li>
+              <StepButton stepNumber={3} stepText="Itinerary" />
+            </li>
+            <li>
+              <StepButton stepNumber={4} stepText="Inclusions and Exclusions" />
+            </li>
+            <li>
+              <StepButton stepNumber={5} stepText="Meetings and Dropoffs" />
+            </li>
+            <li>
+              <StepButton stepNumber={6} stepText="Media and Highlights" />
+            </li>
+            <li>
+              <StepButton stepNumber={7} stepText="Pricing" />
+            </li>
+            <li>
+              <StepButton stepNumber={8} stepText="Additional Info" />
+            </li>
+            <li>
+              <StepButton stepNumber={9} stepText="FAQs" />
+            </li>
+            <li>
+              <StepButton stepNumber={10} stepText="SEO" />
+            </li>
+            <li>
+              <StepButton stepNumber={11} stepText="Featured" />
+            </li>
+          </ul>
+        </ScrollArea>
+      </nav>
+
+      <section className="flex-1 px-6">
+        <div className="flex justify-between pr-4">
+          <h2 className="font-bold text-xl mb-6">{stepsTexts[currStep - 1]}</h2>
+          <div className="flex gap-1">
+            {/* <Button onClick={() => ("/trips")} size={"lg"} variant={"secondary"}>
+              Cancel
+            </Button> */}
+            {isEdit && (
+              <Button
+                type="submit"
+                form="tripform"
+                className="cursor-pointer"
+                size={"lg"}
+              >
+                Save
+              </Button>
+            )}
+          </div>
+        </div>
+        <ScrollArea className="h-[calc(100vh-4rem)] w-full">
+          {children}
+        </ScrollArea>
+      </section>
+    </div>
+  );
+}
+
+export default function CreateLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <LayoutContent>{children}</LayoutContent>
+    </Suspense>
+  );
+}
